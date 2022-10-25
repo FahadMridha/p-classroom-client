@@ -4,19 +4,15 @@ import { Link } from "react-router-dom";
 const CourseDetails = ({ course }) => {
   const { picture, name, author } = course;
   return (
-    <div className="h-9/12 ">
+    <div className="">
       <Link to={`/courses/${course.id}`}>
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
           <figure>
-            <img className="h-9/12" src={picture} alt="Shoes" />
+            <img className="h-1/3 w-full" src={picture} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Title: {name}</h2>
-            <h4>Author- {author}</h4>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
+            <h4 className="text-xl">Author- {author}</h4>
           </div>
         </div>
       </Link>

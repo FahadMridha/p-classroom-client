@@ -10,11 +10,11 @@ const Courses = () => {
       .then((data) => setCourse(data));
   }, []);
   return (
-    <div className="grid grid-cols-3 gap-4 ">
+    <div className="grid grid-cols-3 gap-4 mt-8">
       <div>
         <h3>Total courses:{courses.length}</h3>
         {courses.map((course) => (
-          <p className="text-lg font-semibold italic" key={course.id}>
+          <p className="text-lg text-white font-semibold " key={course.id}>
             <Link to={`/courses/${course.id}`}>{course.name}</Link>
           </p>
         ))}

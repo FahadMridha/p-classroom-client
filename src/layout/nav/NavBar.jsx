@@ -71,12 +71,21 @@ const Header = () => {
             {user?.uid ? (
               <div>
                 <span>{user?.displayName}</span>
-                <button onClick={handlerLogOut}>Logout</button>
+                <button
+                  className="btn btn-active btn-ghost"
+                  onClick={handlerLogOut}
+                >
+                  Logout
+                </button>
               </div>
             ) : (
               <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">SignUp</Link>
+                <button className="btn btn-active btn-ghost">
+                  <Link to="/login">Login</Link>
+                </button>
+                <button className="btn btn-active btn-ghost">
+                  <Link to="/signup">SignUp</Link>
+                </button>
               </>
             )}
           </>
