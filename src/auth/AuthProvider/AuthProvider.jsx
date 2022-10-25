@@ -1,7 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
   signInWithPopup,
 } from "firebase/auth";
 import app from "../../config/firbase/firbase.config";
@@ -17,7 +19,18 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = (provider) => {
     return signInWithPopup(auth, provider);
   };
-  const authInfo = { user, createUser, googleSignIn };
+  const signIn = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+  const authInfo = { user, createUser, googleSignIn, signIn };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

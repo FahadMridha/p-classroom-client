@@ -1,16 +1,23 @@
-import { GoogleAuthProvider } from "firebase/auth";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
-  const googleProvider = new GoogleAuthProvider();
+  const { signIn } = useContext(AuthContext);
+
   const handlerLogin = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.error("error:", error);
+      });
   };
 
   return (
