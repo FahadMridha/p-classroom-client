@@ -16,16 +16,18 @@ export const route = createBrowserRouter([
         element: "",
       },
       {
+        path: "/courses",
+        element: <Courses />,
+        loader: () =>
+          fetch("https://classroom-server-zeta.vercel.app/categorys"),
+      },
+      {
         path: "/blog",
         element: <Blog />,
       },
       {
         path: "/faq",
         element: <Faq />,
-      },
-      {
-        path: "/courses",
-        element: <Courses />,
       },
     ],
   },
