@@ -4,14 +4,20 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
   console.log(user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   let activeStyle = {
     textDecoration: "underline",
   };
 
-  const handlerLogOut = () => {};
+  const handlerLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bg-slate-300 shadow-lg">
       <div className="relative flex items-center justify-between">

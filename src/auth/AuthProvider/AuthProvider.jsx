@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  signOut,
 } from "firebase/auth";
 import app from "../../config/firbase/firbase.config";
 
@@ -22,6 +23,9 @@ const AuthProvider = ({ children }) => {
   const signIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
+  const logOut = () => {
+    return signOut(auth);
+  };
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -30,7 +34,7 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-  const authInfo = { user, createUser, googleSignIn, signIn };
+  const authInfo = { user, createUser, googleSignIn, signIn, logOut };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );
