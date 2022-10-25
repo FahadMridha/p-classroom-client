@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CourseDetails = ({ course }) => {
   const { picture, name, author } = course;
   return (
-    <div className="h-9/12">
+    <div className="h-9/12 ">
       <Link to={`/courses/${course.id}`}>
         <div className="card card-compact w-96 bg-base-100 shadow-xl">
           <figure>

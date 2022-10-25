@@ -14,13 +14,13 @@ const Courses = () => {
       <div>
         <h3>Total courses:{courses.length}</h3>
         {courses.map((course) => (
-          <p key={course.id}>
+          <p className="text-lg font-semibold italic" key={course.id}>
             <Link to={`/courses/${course.id}`}>{course.name}</Link>
           </p>
         ))}
       </div>
       <div className="col-span-2 ">
-        <div className="grid grid-cols-2 gap-4 ">
+        <div className="grid grid-cols-2 gap-4  ">
           {courses.map((course) => (
             <CourseDetails key={course.id} course={course}></CourseDetails>
           ))}

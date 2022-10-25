@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
@@ -15,6 +16,7 @@ const Header = () => {
           title="Classroom"
           className="inline-flex items-center"
         >
+          <img src={""} alt="./" />
           <span className="ml-2 text-3xl font-bold tracking-wide text-orange-400 ">
             Classroom
           </span>
@@ -52,6 +54,16 @@ const Header = () => {
             >
               <p> Blog</p>
             </NavLink>
+          </li>
+          <li>
+            <button>
+              <Link to="/login">Login</Link>
+            </button>
+          </li>
+          <li>
+            <button>
+              <Link to="/signup">SignUp</Link>
+            </button>
           </li>
         </ul>
         <div className="lg:hidden">
