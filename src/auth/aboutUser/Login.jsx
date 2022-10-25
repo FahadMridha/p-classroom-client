@@ -1,7 +1,18 @@
-import React from "react";
+import { GoogleAuthProvider } from "firebase/auth";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { googleSignIn } = useContext(AuthContext);
+  const googleProvider = new GoogleAuthProvider();
+  const handlerLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+  };
+
   return (
     <div className="flex justify-center items-center pt-8">
       <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
@@ -15,6 +26,7 @@ const Login = () => {
           noValidate=""
           action=""
           className="space-y-6 ng-untouched ng-pristine ng-valid"
+          onSubmit={handlerLogin}
         >
           <div className="space-y-4">
             <div>

@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 
 const Header = () => {
+  const { user } = useContext(AuthContext);
+  console.log(user);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   let activeStyle = {
     textDecoration: "underline",
   };
+
+  const handlerLogOut = () => {};
   return (
     <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bg-slate-300 shadow-lg">
       <div className="relative flex items-center justify-between">
@@ -55,16 +60,20 @@ const Header = () => {
               <p> Blog</p>
             </NavLink>
           </li>
-          <li>
-            <button>
-              <Link to="/login">Login</Link>
-            </button>
-          </li>
-          <li>
-            <button>
-              <Link to="/signup">SignUp</Link>
-            </button>
-          </li>
+
+          <>
+            {user?.uid ? (
+              <div>
+                <span>{user?.displayName}</span>
+                <button onClick={handlerLogOut}>Logout</button>
+              </div>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/signup">SignUp</Link>
+              </>
+            )}
+          </>
         </ul>
         <div className="lg:hidden">
           <button
