@@ -32,8 +32,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center pt-8">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+    <div className="flex justify-center items-center pt-8 ">
+      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-slate-600 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Register</h1>
           <p className="text-sm text-gray-400">Create a new account</p>
@@ -49,7 +49,7 @@ const SignUp = () => {
           <button
             onClick={handlerGoogleSignUp}
             aria-label="Log in with Google"
-            className="p-3 rounded-sm hover:bg-gray-200"
+            className="p-3 rounded-sm hover:bg-slate-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +61,7 @@ const SignUp = () => {
           </button>
           <button
             aria-label="Log in with Twitter"
-            className="p-3 rounded-sm    hover:bg-gray-200"
+            className="p-3 rounded-sm    hover:bg-slate-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -73,7 +73,7 @@ const SignUp = () => {
           </button>
           <button
             aria-label="Log in with GitHub"
-            className="p-3 rounded-sm  hover:bg-gray-200"
+            className="p-3 rounded-sm  hover:bg-slate-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +100,7 @@ const SignUp = () => {
                 name="name"
                 id="name"
                 placeholder="Enter Your Name Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -113,7 +113,20 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
+                data-temp-mail-org="0"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block mb-2 text-sm">
+                Photo Url
+              </label>
+              <input
+                type="text"
+                name="photoURL"
+                id="photoURL"
+                placeholder="Provide your Photo"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -128,7 +141,7 @@ const SignUp = () => {
                 name="password"
                 id="password"
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-slate-700 focus:border-gray-900 text-gray-900"
               />
             </div>
           </div>
@@ -146,10 +159,9 @@ const SignUp = () => {
 
         <p className="px-6 text-sm text-center text-gray-400">
           Already have an account yet?{" "}
-          <Link to="/login" className="hover:underline text-gray-600">
+          <Link to="/login" className="hover:underline text-gray-900 font-bold">
             Sign In
           </Link>
-          .
         </p>
       </div>
     </div>

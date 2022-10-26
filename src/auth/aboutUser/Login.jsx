@@ -27,7 +27,7 @@ const Login = () => {
 
   return (
     <div className="flex justify-center items-center pt-8">
-      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900">
+      <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-slate-600 text-gray-900">
         <div className="mb-8 text-center">
           <h1 className="my-3 text-4xl font-bold">Sign in</h1>
           <p className="text-sm text-gray-400">
@@ -50,7 +50,7 @@ const Login = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-gray-200 text-gray-900"
+                className="w-full px-3 py-2  rounded-md  focus:border-gray-900 bg-slate-700 text-gray-900"
                 data-temp-mail-org="0"
               />
             </div>
@@ -65,7 +65,7 @@ const Login = () => {
                 name="password"
                 id="password"
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-200 focus:border-gray-900 text-gray-900"
+                className="w-full px-3 py-2  rounded-md  bg-slate-700 focus:border-gray-900 text-gray-900"
               />
             </div>
           </div>
@@ -73,7 +73,7 @@ const Login = () => {
           <div>
             <button
               type="submit"
-              className="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-100"
+              className="w-full px-8 py-3 font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-400"
             >
               Sign in
             </button>
@@ -94,7 +94,7 @@ const Login = () => {
         <div className="flex justify-center space-x-4 border shadow-xl">
           <button
             aria-label="Log in with Google"
-            className="p-3 rounded-sm hover:bg-gray-200"
+            className="p-3 rounded-sm hover:bg-slate-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +106,7 @@ const Login = () => {
           </button>
           <button
             aria-label="Log in with Twitter"
-            className="p-3 rounded-sm    hover:bg-gray-200"
+            className="p-3 rounded-sm    hover:bg-slate-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -118,7 +118,7 @@ const Login = () => {
           </button>
           <button
             aria-label="Log in with GitHub"
-            className="p-3 rounded-sm  hover:bg-gray-200"
+            className="p-3 rounded-sm  hover:bg-slate-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +131,10 @@ const Login = () => {
         </div>
         <p className="px-6 text-sm text-center text-gray-400">
           Don't have an account yet?{" "}
-          <Link to="/signup" className="hover:underline text-gray-600">
+          <Link
+            to="/signup"
+            className="hover:underline ttext-gray-900 font-bold"
+          >
             Sign up
           </Link>
           .
