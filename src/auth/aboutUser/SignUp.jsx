@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
@@ -10,6 +10,7 @@ const SignUp = () => {
     updateUserProfile,
     userEmailVarification,
   } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const handlerSubmit = (e) => {
@@ -30,6 +31,7 @@ const SignUp = () => {
       })
       .catch((error) => {
         console.error("error:", error);
+        setError(error.massage);
       });
   };
   const handlerGoogleSignUp = () => {

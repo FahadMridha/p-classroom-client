@@ -80,18 +80,23 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
+            {user?.photoURL ? (
+              <img
+                className="rounded-full"
+                style={{ height: "30px" }}
+                src={user?.photoURL}
+                alt=""
+              />
+            ) : (
+              <FaUser></FaUser>
+            )}
+          </li>
+          <li>
             {user?.uid ? (
-              <div className="flex  gap-4">
-                <p>{user?.displayName}</p>
-                <img
-                  className="rounded-full"
-                  style={{ height: "30px" }}
-                  src={user?.photoURL}
-                  alt=""
-                />
-
+              <div className="">
+                <>{user?.displayName}</>
                 <button
-                  className="btn btn-active btn-ghost"
+                  className="btn btn-active btn-ghost mx-2"
                   onClick={handlerLogOut}
                 >
                   Logout
@@ -99,12 +104,15 @@ const Header = () => {
               </div>
             ) : (
               <>
-                <button className="btn btn-active btn-ghost mr-2">
-                  <Link to="/login">Login</Link>
-                </button>
-                <button className="btn btn-active btn-ghost">
-                  <Link to="/signup">SignUp</Link>
-                </button>
+                <li>
+                  <button className="btn btn-active btn-ghost mr-2">
+                    <Link to="/login">Login</Link>
+                  </button>
+
+                  <button className="btn btn-active btn-ghost">
+                    <Link to="/signup">SignUp</Link>
+                  </button>
+                </li>
               </>
             )}
           </li>
@@ -228,16 +236,21 @@ const Header = () => {
                       </NavLink>
                     </li>
                     <li>
+                      {user?.photoURL ? (
+                        <img
+                          className="rounded-full"
+                          style={{ height: "30px" }}
+                          src={user?.photoURL}
+                          alt=""
+                        />
+                      ) : (
+                        <FaUser></FaUser>
+                      )}
+                    </li>
+                    <li>
                       {user?.uid ? (
-                        <div className="flex  gap-4">
-                          <p>{user?.displayName}</p>
-                          <img
-                            className="rounded-full"
-                            style={{ height: "30px" }}
-                            src={user?.photoURL}
-                            alt=""
-                          />
-
+                        <div className="">
+                          <li>{user?.displayName}</li>
                           <button
                             className="btn btn-active btn-ghost"
                             onClick={handlerLogOut}
