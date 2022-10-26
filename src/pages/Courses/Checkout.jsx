@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
+
 import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 
 const Checkout = () => {
   const { user } = useContext(AuthContext);
+  // const { course } = useLoaderData();
+  // const { name, price, language, id, author } = course;
   return (
     <>
       <h1 className="text-3xl text-center mt-10 text-slate-500">
@@ -16,8 +19,8 @@ const Checkout = () => {
           src={user?.photoURL}
           alt=""
         />
-        <div></div>
       </div>
+      <div></div>
     </>
   );
 };

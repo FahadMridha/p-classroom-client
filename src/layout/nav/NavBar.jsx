@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 import logo from "../../assets/images/logo1.png";
 import { FaUser } from "react-icons/fa";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -13,8 +14,19 @@ const Header = () => {
   };
 
   const handlerLogOut = () => {
-    logOut()
-      .then(() => {})
+    logOut().then(() => {});
+    toast
+      .success("User Logout.", {
+        style: {
+          border: "1px solid #713200",
+          padding: "16px",
+          color: "#713200",
+        },
+        iconTheme: {
+          primary: "#713200",
+          secondary: "#FFFAEE",
+        },
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -87,7 +99,7 @@ const Header = () => {
               </div>
             ) : (
               <>
-                <button className="btn btn-active btn-ghost">
+                <button className="btn btn-active btn-ghost mr-2">
                   <Link to="/login">Login</Link>
                 </button>
                 <button className="btn btn-active btn-ghost">
@@ -119,7 +131,7 @@ const Header = () => {
             )}
           </Link>
         </> */}
-        <div className="lg:hidden">
+        <div className="lg:hidden  ">
           <button
             aria-label="Open Menu"
             title="Open Menu"
@@ -142,8 +154,8 @@ const Header = () => {
             </svg>
           </button>
           {isMenuOpen && (
-            <div className="absolute top-0 left-0 w-full">
-              <div className="p-5 bg-white border rounded shadow-sm">
+            <div className="absolute top-0 left-0 w-full ">
+              <div className="p-5 bg-slate-500 border rounded shadow-sm">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <NavLink
@@ -152,6 +164,7 @@ const Header = () => {
                       title="Classroom"
                       className="inline-flex items-center"
                     >
+                      <img className="rounded shadow-lg" src={logo} alt="./" />
                       <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
                         Classroom
                       </span>
@@ -174,7 +187,7 @@ const Header = () => {
                   </div>
                 </div>
                 <nav>
-                  <ul className="space-y-4">
+                  <ul className="space-y-4 ">
                     <li>
                       <NavLink
                         to="/courses"
@@ -213,6 +226,39 @@ const Header = () => {
                       >
                         <p> Blog</p>
                       </NavLink>
+                    </li>
+                    <li>
+                      {user?.uid ? (
+                        <div className="flex  gap-4">
+                          <p>{user?.displayName}</p>
+                          <img
+                            className="rounded-full"
+                            style={{ height: "30px" }}
+                            src={user?.photoURL}
+                            alt=""
+                          />
+
+                          <button
+                            className="btn btn-active btn-ghost"
+                            onClick={handlerLogOut}
+                          >
+                            Logout
+                          </button>
+                        </div>
+                      ) : (
+                        <>
+                          <li>
+                            <button className="btn btn-active btn-ghost">
+                              <Link to="/login">Login</Link>
+                            </button>
+                          </li>
+                          <li>
+                            <button className="btn btn-active btn-ghost">
+                              <Link to="/signup">SignUp</Link>
+                            </button>
+                          </li>
+                        </>
+                      )}
                     </li>
                   </ul>
                 </nav>

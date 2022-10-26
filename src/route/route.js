@@ -30,11 +30,7 @@ export const route = createBrowserRouter([
         element: <Courses />,
         loader: () => fetch("https://classroom-server-zeta.vercel.app/courses"),
       },
-      {
-        path: "/courses",
-        element: <Courses />,
-        loader: () => fetch("https://classroom-server-zeta.vercel.app/courses"),
-      },
+
       {
         path: "/courses/:id",
         element: <CourseMoreDetails />,
@@ -44,12 +40,16 @@ export const route = createBrowserRouter([
           ),
       },
       {
-        path: "/checkout",
+        path: "/checkout/:id",
         element: (
           <PrivateRoute>
             <Checkout />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(
+            `https://classroom-server-zeta.vercel.app/checkout/${params.id}`
+          ),
       },
       {
         path: "/blog",

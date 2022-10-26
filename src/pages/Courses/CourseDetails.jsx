@@ -12,7 +12,7 @@ const CourseDetails = ({ course }) => {
           </figure>
           <div className="card-body bg-slate-500">
             <h2 className="card-title">Title: {name}</h2>
-            <p className="text-lg"> price:{price}</p>
+            <p className="text-lg"> price:${price}</p>
             <h4 className="text-xl">Author- {author}</h4>
           </div>
         </div>
