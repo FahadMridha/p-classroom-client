@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
+import logo from "../../assets/images/logo1.png";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -18,7 +19,7 @@ const Header = () => {
       });
   };
   return (
-    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bg-slate-300 shadow-lg">
+    <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-24 lg:px-8 bg-slate-500 shadow-lg">
       <div className="relative flex items-center justify-between">
         <Link
           to="/"
@@ -26,7 +27,7 @@ const Header = () => {
           title="Classroom"
           className="inline-flex items-center"
         >
-          <img src={""} alt="./" />
+          <img className="rounded shadow-lg" src={logo} alt="./" />
           <span className="ml-2 text-3xl font-bold tracking-wide text-orange-400 ">
             Classroom
           </span>
@@ -147,7 +148,7 @@ const Header = () => {
                   <ul className="space-y-4">
                     <li>
                       <NavLink
-                        to="/courese"
+                        to="/courses"
                         style={({ isActive }) =>
                           isActive ? activeStyle : undefined
                         }

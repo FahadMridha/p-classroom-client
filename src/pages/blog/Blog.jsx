@@ -3,10 +3,10 @@ import React from "react";
 const Blog = () => {
   return (
     <div className="w-full">
-      <h2 className="text-center text-xl border shadow-xl mt-10  p-6 mx-8 rounded-md  bg-slate-200 font-bold text-orange-700">
+      <h2 className="text-center text-xl border shadow-xl mt-10  p-6 mx-8 rounded-md  bg-slate-400 font-bold text-orange-700">
         Question Section
       </h2>
-      <div className="bg-slate-300 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
+      <div className="bg-slate-500 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
         <h1 className="test-2xl font-bold text-left">Qsn1.what is cors?</h1>
         <p>
           <span className="font-semibold">Answer:</span> <br />
@@ -20,7 +20,7 @@ const Blog = () => {
           support.
         </p>
       </div>
-      <div className=" bg-slate-300 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
+      <div className=" bg-slate-500 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
         <h1 className="test-2xl font-bold text-left">
           Qsn2. Why are you using firebase? What other options do you have to
           implement authentication?
@@ -42,7 +42,7 @@ const Blog = () => {
           supports multiple SDKs, including Flutter, Web, Apple, and Android.
         </p>
       </div>
-      <div className=" bg-slate-300 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
+      <div className=" bg-slate-500 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
         <h1 className="test-2xl font-bold text-left">
           Qsn3.How does the private route work?
         </h1>
@@ -55,7 +55,7 @@ const Blog = () => {
           (Logged in)
         </p>
       </div>
-      <div className=" bg-slate-300 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
+      <div className=" bg-slate-500 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
         <h1 className="test-2xl font-bold text-left">
           Qsn3. What is Node? How does Node work?
         </h1>

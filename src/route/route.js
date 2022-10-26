@@ -8,6 +8,7 @@ import CourseMoreDetails from "../pages/Courses/CourseMoreDetails";
 import Courses from "../pages/Courses/Courses";
 import ErrorPage from "../pages/error/ErrorPage";
 import Faq from "../pages/FAQ/Faq";
+import Home from "../pages/home/Home";
 import PrivateRoute from "./PrivateRoute";
 
 export const route = createBrowserRouter([
@@ -16,9 +17,13 @@ export const route = createBrowserRouter([
     element: <Main />,
     errorElement: <ErrorPage />,
     children: [
+      // {
+      //   path: "/",
+      //   element: <Home />,
+      // },
       {
         path: "/home",
-        element: "",
+        element: <Home />,
       },
       {
         path: "/courses",

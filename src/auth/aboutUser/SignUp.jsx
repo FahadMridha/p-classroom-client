@@ -125,7 +125,7 @@ const SignUp = () => {
                 type="text"
                 name="photoURL"
                 id="photoURL"
-                placeholder="Provide your Photo"
+                placeholder="Provide your Photo URL"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
                 data-temp-mail-org="0"
               />
