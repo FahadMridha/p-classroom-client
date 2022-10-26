@@ -4,32 +4,51 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const SignUp = () => {
-  const { createUser, googleSignIn } = useContext(AuthContext);
+  const {
+    createUser,
+    providerLogin,
+    updateUserProfile,
+    userEmailVarification,
+  } = useContext(AuthContext);
   const provider = new GoogleAuthProvider();
   const handlerSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const email = form.email.value;
+    const photoURL = form.photoURL.value;
     const password = form.password.value;
-    console.log(name, email, password);
+    console.log(name, email, password, photoURL);
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
+        handlerUpdateUserProfile(name, photoURL);
+        // handlerUserEmailVarification();
       })
       .catch((error) => {
         console.error("error:", error);
       });
   };
   const handlerGoogleSignUp = () => {
-    googleSignIn(provider)
+    providerLogin(provider)
       .then(() => {})
       .catch((error) => {
         console.error("error:", error);
       });
   };
+  const handlerUpdateUserProfile = (name, photoURL) => {
+    const profile = { displayName: name, photoURL: photoURL };
+    updateUserProfile(profile)
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+  // const handlerUserEmailVarification = () => {
+  //   userEmailVarification()
+  //     .then(() => {})
+  //     .catch((error) => console.log(error));
+  // };
 
   return (
     <div className="flex justify-center items-center pt-8 ">
@@ -100,7 +119,7 @@ const SignUp = () => {
                 name="name"
                 id="name"
                 placeholder="Enter Your Name Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-500"
                 data-temp-mail-org="0"
               />
             </div>
@@ -113,7 +132,7 @@ const SignUp = () => {
                 name="email"
                 id="email"
                 placeholder="Enter Your Email Here"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-500"
                 data-temp-mail-org="0"
               />
             </div>
@@ -126,7 +145,7 @@ const SignUp = () => {
                 name="photoURL"
                 id="photoURL"
                 placeholder="Provide your Photo URL"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 focus:border-gray-900 bg-slate-700 text-gray-500"
                 data-temp-mail-org="0"
               />
             </div>
@@ -141,7 +160,7 @@ const SignUp = () => {
                 name="password"
                 id="password"
                 placeholder="*******"
-                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-slate-700 focus:border-gray-900 text-gray-900"
+                className="w-full px-3 py-2 border rounded-md border-gray-300 bg-slate-700 focus:border-gray-900 text-gray-500"
               />
             </div>
           </div>

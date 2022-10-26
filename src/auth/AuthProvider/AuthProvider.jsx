@@ -3,9 +3,11 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  sendEmailVerification,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import app from "../../config/firbase/firbase.config";
 
@@ -20,13 +22,19 @@ const AuthProvider = ({ children }) => {
     setLoding(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
-  const googleSignIn = (provider) => {
+  const providerLogin = (provider) => {
     setLoding(true);
     return signInWithPopup(auth, provider);
   };
   const signIn = (email, password) => {
     setLoding(true);
     return signInWithEmailAndPassword(auth, email, password);
+  };
+  const updateUserProfile = (profile) => {
+    return updateProfile(auth.currentUser, profile);
+  };
+  const userEmailVarification = () => {
+    return sendEmailVerification(auth.currentUser);
   };
   const logOut = () => {
     setLoding(true);
@@ -41,7 +49,17 @@ const AuthProvider = ({ children }) => {
       unsubscribe();
     };
   }, []);
-  const authInfo = { user, createUser, googleSignIn, signIn, loding, logOut };
+  const authInfo = {
+    user,
+    createUser,
+    providerLogin,
+    signIn,
+    updateUserProfile,
+    userEmailVarification,
+    loding,
+    setLoding,
+    logOut,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

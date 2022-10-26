@@ -21,9 +21,14 @@ export const route = createBrowserRouter([
       //   path: "/",
       //   element: <Home />,
       // },
+      // {
+      //   path: "/home",
+      //   element: <Home />,
+      // },
       {
-        path: "/home",
-        element: <Home />,
+        path: "/courses",
+        element: <Courses />,
+        loader: () => fetch("https://classroom-server-zeta.vercel.app/courses"),
       },
       {
         path: "/courses",

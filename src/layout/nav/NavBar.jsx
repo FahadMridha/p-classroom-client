@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 import logo from "../../assets/images/logo1.png";
+import { FaUser } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -66,11 +67,17 @@ const Header = () => {
               <p> Blog</p>
             </NavLink>
           </li>
-
-          <>
+          <li>
             {user?.uid ? (
-              <div>
-                <span>{user?.displayName}</span>
+              <div className="flex  gap-4">
+                <p>{user?.displayName}</p>
+                <img
+                  className="rounded-full"
+                  style={{ height: "30px" }}
+                  src={user?.photoURL}
+                  alt=""
+                />
+
                 <button
                   className="btn btn-active btn-ghost"
                   onClick={handlerLogOut}
@@ -88,8 +95,30 @@ const Header = () => {
                 </button>
               </>
             )}
-          </>
+          </li>
         </ul>
+        {/* <>
+          <>
+            {user?.uid ? (
+              <div>
+                <span>{user?.displayName}</span>
+                <button onClick={handlerLogOut}>Logout</button>
+              </div>
+            ) : (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+              </>
+            )}
+          </>
+          <Link to="/profile">
+            {user?.photoURL ? (
+              <img style={{ height: "30px" }} src={user?.photoURL} alt="/" />
+            ) : (
+              <FaUser></FaUser>
+            )}
+          </Link>
+        </> */}
         <div className="lg:hidden">
           <button
             aria-label="Open Menu"
