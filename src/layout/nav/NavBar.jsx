@@ -90,6 +90,7 @@ const Header = () => {
           <li>
             {user?.photoURL ? (
               <img
+                title={user?.displayName}
                 className="rounded-full"
                 style={{ height: "30px" }}
                 src={user?.photoURL}
@@ -102,7 +103,7 @@ const Header = () => {
           <li>
             {user?.uid ? (
               <div className="">
-                <>{user?.displayName}</>
+                <span title={user?.displayName}>{user?.displayName}</span>
                 <button
                   className="btn btn-active btn-ghost mx-2"
                   onClick={handlerLogOut}
@@ -125,28 +126,7 @@ const Header = () => {
             )}
           </li>
         </ul>
-        {/* <>
-          <>
-            {user?.uid ? (
-              <div>
-                <span>{user?.displayName}</span>
-                <button onClick={handlerLogOut}>Logout</button>
-              </div>
-            ) : (
-              <>
-                <Link to="/login">Login</Link>
-                <Link to="/register">Register</Link>
-              </>
-            )}
-          </>
-          <Link to="/profile">
-            {user?.photoURL ? (
-              <img style={{ height: "30px" }} src={user?.photoURL} alt="/" />
-            ) : (
-              <FaUser></FaUser>
-            )}
-          </Link>
-        </> */}
+
         <div className="lg:hidden  ">
           <button
             aria-label="Open Menu"
