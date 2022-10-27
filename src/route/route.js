@@ -48,7 +48,7 @@ export const route = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://classroom-server-zeta.vercel.app/checkout/${params.id}`
+            `https://classroom-server-zeta.vercel.app/courses/${params.id}`
           ),
       },
       {

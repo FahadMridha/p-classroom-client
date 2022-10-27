@@ -4,6 +4,7 @@ import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 import logo from "../../assets/images/logo1.png";
 import { FaUser } from "react-icons/fa";
 import toast from "react-hot-toast";
+import "./navbar.css";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -78,6 +79,13 @@ const Header = () => {
             >
               <p> Blog</p>
             </NavLink>
+          </li>
+          <li>
+            <label class="rocker rocker-small">
+              <input type="checkbox" />
+              <span class="switch-left">Light</span>
+              <span class="switch-right">Dark</span>
+            </label>
           </li>
           <li>
             {user?.photoURL ? (
