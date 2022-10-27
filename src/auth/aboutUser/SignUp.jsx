@@ -20,20 +20,26 @@ const SignUp = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
-    console.log(name, email, password, photoURL);
+
+    //user create with email and password by firebase/auth
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
+        //update user profile
         handlerUpdateUserProfile(name, photoURL);
+
+        //user email varification funcition
+
         // handlerUserEmailVarification();
       })
       .catch((error) => {
         console.error("error:", error);
-        setError(error.massage);
+        setError(error.message);
       });
   };
+  //user google signin function
   const handlerGoogleSignUp = () => {
     providerLogin(googleProvider)
       .then(() => {})
@@ -47,6 +53,7 @@ const SignUp = () => {
       .then(() => {})
       .catch((error) => console.log(error));
   };
+  //user github signin function
   const handlerGitHub = () => {
     providerLogin(githubProvider)
       .then(() => {})
@@ -186,14 +193,15 @@ const SignUp = () => {
               </button>
             </div>
           </div>
+          <span className="text-yellow-600">{error} </span>
         </form>
 
-        <p className="px-6 text-sm text-center text-gray-400">
+        <span className="px-6 text-sm text-center text-gray-400">
           Already have an account yet?{" "}
           <Link to="/login" className="hover:underline text-gray-900 font-bold">
             Sign In
           </Link>
-        </p>
+        </span>
       </div>
     </div>
   );

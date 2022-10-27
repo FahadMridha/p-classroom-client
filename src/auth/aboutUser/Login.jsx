@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const { signIn, setLoding } = useContext(AuthContext);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
@@ -19,11 +20,17 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         toast.success("successfully login");
+
         form.reset();
+        setError("");
         navigate(from, { replace: true });
       })
       .catch((error) => {
         console.error("error:", error);
+        setError(error.message);
+      })
+      .finally(() => {
+        setLoding(false);
       });
   };
 
@@ -80,6 +87,7 @@ const Login = () => {
               Sign in
             </button>
           </div>
+          <span className="text-yellow-600">{error} </span>
         </form>
         <div className="space-y-1">
           <button className="text-xs hover:underline text-gray-400">
@@ -88,7 +96,7 @@ const Login = () => {
         </div>
         <div className="flex items-center pt-4 space-x-1">
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
-          <p className="pb-3 text-sm dark:text-gray-400 underline">
+          <p className="pb-3 text-sm text-gray-300 underline">
             Signup with social accounts
           </p>
           <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>
