@@ -6,7 +6,7 @@ import { AuthContext } from "../../auth/AuthProvider/AuthProvider";
 const Checkout = () => {
   const { user } = useContext(AuthContext);
   const course = useLoaderData();
-  const { name, picture, price, author, description, id, language } = course;
+  const { name, price, author, id, language } = course;
   console.log(id);
   return (
     <>
@@ -23,7 +23,7 @@ const Checkout = () => {
         />
       </div>
 
-      <div className="mx-auto ">
+      <div className="text-center ">
         <div className="border-2 p-4 w-9/12 text-center">
           <div className="text-slate-500">
             <h2>Course Title: {name}</h2>
@@ -49,6 +49,9 @@ const Checkout = () => {
             </ul>
           </div>
         </div>
+        <button className="btn text-center my-4">
+          <Link to="/courses">Back to Courses </Link>{" "}
+        </button>
       </div>
     </>
   );

@@ -37,13 +37,17 @@ const Header = () => {
       <div className="relative flex items-center justify-between">
         <Link
           to="/"
-          aria-label="Classroom"
-          title="Classroom"
+          aria-label=" PROGRAMMING CLASSROOM"
+          title="PROGRAMMING CLASSROOM"
           className="inline-flex items-center"
         >
           <img className="rounded shadow-lg" src={logo} alt="./" />
           <span className="ml-2 text-3xl font-bold tracking-wide text-orange-400 ">
-            Classroom
+            <span className="text-lg font-bold  tracking-wide text-orange-500">
+              PROGRAMMING
+            </span>
+            <br />
+            CLASSROOM
           </span>
         </Link>
         <ul className="flex items-center hidden space-x-8 lg:flex">
@@ -156,13 +160,17 @@ const Header = () => {
                   <div>
                     <NavLink
                       to="/"
-                      aria-label="Classroom"
-                      title="Classroom"
+                      aria-label="PROGRAMMING CLASSROOM"
+                      title="PROGRAMMING CLASSROOM"
                       className="inline-flex items-center"
                     >
                       <img className="rounded shadow-lg" src={logo} alt="./" />
-                      <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                        Classroom
+                      <span className="ml-2 text-3xl font-bold tracking-wide text-orange-400 ">
+                        <span className="text-lg font-bold  tracking-wide text-orange-500">
+                          PROGRAMMING
+                        </span>
+                        <br />
+                        CLASSROOM
                       </span>
                     </NavLink>
                   </div>

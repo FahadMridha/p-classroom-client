@@ -1,11 +1,11 @@
 # Project Name
 
-Name--> Classroom </br>
+Name--> PROGRAMMING CLASSROOM </br>
 An online platform for learning high qualityprogramming language.
 
 # Project Live Link
 
-Hosted in Firebase --> [CLASSROOM](https://classroom-d2773.web.app/).
+Hosted in Firebase --> [PROGRAMMING CLASSROOM](https://classroom-d2773.web.app/).
 
 # Authentication
 

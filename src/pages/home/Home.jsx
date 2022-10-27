@@ -6,9 +6,9 @@ const Home = () => {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 ">
       <div>
-        <img className="" src={img} alt="" />
+        <img className="rounded " src={img} alt="" />
       </div>
-      <div className="text-orange-400 text-center text-4xl my-auto">
+      <div className="text-orange-400 text-center text-4xl italic  my-auto">
         <h2 className="text-center">Welcome to our Online Course.</h2>
         <p className="text-orange-500 text-center text-2xl my-auto">
           A programming language is a system of notation for writing computer
