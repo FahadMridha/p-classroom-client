@@ -57,6 +57,7 @@ const SignUp = () => {
   const handlerGitHub = () => {
     providerLogin(githubProvider)
       .then(() => {})
+
       .catch((error) => console.log(error));
   };
   // const handlerUserEmailVarification = () => {

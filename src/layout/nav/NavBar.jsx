@@ -81,10 +81,10 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <label class="rocker rocker-small">
+            <label className="rocker rocker-small">
               <input type="checkbox" />
-              <span class="switch-left">Light</span>
-              <span class="switch-right">Dark</span>
+              <span className="switch-left">Light</span>
+              <span className="switch-right">Dark</span>
             </label>
           </li>
           <li>
@@ -113,7 +113,7 @@ const Header = () => {
               </div>
             ) : (
               <>
-                <li>
+                <span>
                   <button className="btn btn-active btn-ghost mr-2">
                     <Link to="/login">Login</Link>
                   </button>
@@ -121,7 +121,7 @@ const Header = () => {
                   <button className="btn btn-active btn-ghost">
                     <Link to="/signup">SignUp</Link>
                   </button>
-                </li>
+                </span>
               </>
             )}
           </li>
@@ -224,8 +224,16 @@ const Header = () => {
                       </NavLink>
                     </li>
                     <li>
+                      <label className="rocker rocker-small">
+                        <input type="checkbox" />
+                        <span className="switch-left">Light</span>
+                        <span className="switch-right">Dark</span>
+                      </label>
+                    </li>
+                    <li>
                       {user?.photoURL ? (
                         <img
+                          title={user?.displayName}
                           className="rounded-full"
                           style={{ height: "30px" }}
                           src={user?.photoURL}
@@ -238,7 +246,9 @@ const Header = () => {
                     <li>
                       {user?.uid ? (
                         <div className="">
-                          <li>{user?.displayName}</li>
+                          <span title={user?.displayName}>
+                            {user?.displayName}
+                          </span>
                           <button
                             className="btn btn-active btn-ghost"
                             onClick={handlerLogOut}
@@ -248,16 +258,16 @@ const Header = () => {
                         </div>
                       ) : (
                         <>
-                          <li>
+                          <span>
                             <button className="btn btn-active btn-ghost">
                               <Link to="/login">Login</Link>
                             </button>
-                          </li>
-                          <li>
+                          </span>
+                          <span>
                             <button className="btn btn-active btn-ghost">
                               <Link to="/signup">SignUp</Link>
                             </button>
-                          </li>
+                          </span>
                         </>
                       )}
                     </li>
