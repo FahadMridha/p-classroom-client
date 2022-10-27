@@ -8,12 +8,12 @@ import "./navbar.css";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-  console.log(user);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   let activeStyle = {
     textDecoration: "underline",
   };
-
+  //user logout function
   const handlerLogOut = () => {
     logOut().then(() => {});
     toast
