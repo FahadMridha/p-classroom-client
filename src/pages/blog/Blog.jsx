@@ -9,7 +9,7 @@ const Blog = () => {
       <div className="bg-slate-500 p-4 shadow-xl rounded-lg text-lg mx-8 mt-5">
         <h1 className="test-2xl font-bold text-left">Qsn1.what is cors?</h1>
         <p>
-          <span className="font-semibold">Answer:</span> <br />
+          <span className="font-semibold">Answer: </span> <br />
           Cross-origin resource sharing (CORS) is a mechanism that allows
           restricted resources on a web page to be requested from another domain
           outside the domain. Cross-Origin Resource Sharing (CORS) is an

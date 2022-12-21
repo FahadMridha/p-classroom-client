@@ -31,7 +31,7 @@ const CourseMoreDetails = () => {
             <h2 className="card-title">Title: {name}</h2>
             <small>Author:{author}</small>
             <p className="text-slate-400">Version: {language}</p>
-            <p className="text-slate-300 font-bold ">Price:${price}</p>
+            <p className="text-slate-300 font-bold ">Price:$ {price}</p>
             <p className="text-slate-400">{description}</p>
             <div className="card-actions justify-end">
               <button className="btn font-semibold rounded-md bg-gray-900 hover:bg-gray-700 hover:text-white text-gray-400 ">
